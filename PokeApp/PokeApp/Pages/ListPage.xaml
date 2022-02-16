@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokeApp.ListPage">
+    <StackLayout>
+        <Frame>
+            <Image Source="PokeDex.jpg" HeightRequest="100"/>
+        </Frame>
+
+        <ListView x:Name="pokemonsList"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="10">
+                            <Frame BackgroundColor="Gray" CornerRadius="20">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Label Text="{Binding Name}"></Label>
+                                            <Label Text="{Binding Number}"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="20">
+                                            <Label Text="{Binding Type1}"></Label>
+                                            <Label Text="{Binding Type2}"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Image Source="{Binding UrlImg}" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+</ContentPage>

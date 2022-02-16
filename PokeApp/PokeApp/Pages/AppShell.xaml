@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:pokeapp="clr-namespace:PokeApp"
+       x:Class="PokeApp.AppShell"
+       BackgroundColor="#FA464B"
+       NavBarIsVisible="False">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.UnselectedColor" Value="Black" />
+            </Style>
+            <Style TargetType="TabBar"  BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="PokeApp"
+            Icon="HomeIcon.png">
+            <pokeapp:MainPage />
+        </ShellContent>
+        <ShellContent Title="Pokedex"
+            Icon="PokeDexIcon.png">
+            <pokeapp:ListPage />
+        </ShellContent>
+        <ShellContent Title="PokeNew"
+            Icon="AjoutIcon">
+            <pokeapp:NewPokemonPage />
+        </ShellContent>
+        <ShellContent Title="PokeDeck"
+            Icon="DeckIcon.png">
+            <pokeapp:DeckPage />
+        </ShellContent>
+    </TabBar>
+
+</Shell>
