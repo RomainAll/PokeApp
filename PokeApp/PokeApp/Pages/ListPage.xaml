@@ -8,7 +8,8 @@
         </Frame>
 
         <ListView x:Name="pokemonsList"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding MyList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
