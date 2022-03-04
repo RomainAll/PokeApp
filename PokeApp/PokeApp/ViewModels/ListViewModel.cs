@@ -1,4 +1,7 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using PokeApiNet;
+using PokeApp.Models;
 
 namespace PokeApp.ViewModels
 {
@@ -17,9 +20,28 @@ namespace PokeApp.ViewModels
         {
             MyList = new ObservableCollection<Pokemon>();
 
-            for (int i = 1; i < 10; i++)
+            InitList();
+        }
+
+        public async void InitList()
+        {
+            PokeApiClient pokeApiClient = new PokeApiClient();
+            for(int i = 1; i <= 50; i++)
             {
-                MyList.Add(new Pokemon() { Name = "piplup" + i.ToString(), Number = i.ToString(), Type1 = "water" + i.ToString(), Type2 = "fire" + i.ToString(), UrlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/393.png" });
+                PokeApiNet.Pokemon pokemon = await Task.Run(() => pokeApiClient.GetResourceAsync<PokeApiNet.Pokemon>(i));
+                Pokemon monPokemon = new Pokemon();
+                monPokemon.Name = pokemon.Name.ToUpper();
+                monPokemon.Number = "#" + pokemon.Id;
+                monPokemon.Url = pokemon.Sprites.FrontDefault;
+                monPokemon.Type1 = pokemon.Types[0].Type.Name.ToUpper();
+                if (pokemon.Types.Count == 2)
+                {
+                    monPokemon.FrameType2 = true;
+                    monPokemon.Type2 = pokemon.Types[1].Type.Name.ToUpper();
+                }
+
+                monPokemon.TypeColor = Constantes.ColorDictionary[monPokemon.Type1.ToLower()];
+                MyList.Add(monPokemon);
             }
         }
 

@@ -13,6 +13,12 @@ namespace PokeApp
         {
             InitializeComponent();
             BindingContext = ListViewModel.Instance;
+
+        }
+
+        public void Selection(Object sender, SelectionChangedEventArgs eventArgs)
+        {
+
         }
     }
 }

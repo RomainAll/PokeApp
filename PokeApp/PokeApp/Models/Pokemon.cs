@@ -6,31 +6,18 @@ namespace PokeApp
 {
     internal class Pokemon
     {
-        private String name;
-        public String Name { get { return name; } set { name = value; } }
+        public String Name { get; set; }
 
-        private String description;
-        public String Description { get { return description; } set { description = value; } }
+        public String Url { get; set; }
 
-        private String type1;
-        public String Type1 { get { return type1; } set { type1 = value; } }
+        public String Type1 { get; set; }
 
-        private String type2;
-        public String Type2 { get { return type2; } set { type2 = value; } }
+        public String Type2 { get; set; }
 
-        private String number;
-        public String Number { get { return "#" + number; } set { number = value; } }
+        public String Number { get; set; }
 
-        private String ability1;
-        public String Ability1 { get { return ability1; } set { ability1 = value; } }
-       
-        private String ability2;
-        public String Ability2 { get { return ability2; } set { ability2 = value; } }
+        public String TypeColor { get; set; }
 
-        private String urlImg;
-        public String UrlImg { get { return urlImg; } set { urlImg = value; } }
-
-        private String evolution;
-        public String Evolution { get { return evolution; } set { evolution = value; } }
+        public Boolean FrameType2 { get; set; }
     }
 }

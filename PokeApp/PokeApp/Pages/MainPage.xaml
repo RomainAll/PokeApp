@@ -1,24 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PokeApp.MainPage">
-    <FlexLayout Direction="Column">
-        <Frame FlexLayout.Basis="20%">
-            <Image Source="PokeApp.jpg"/>
-        </Frame>
+<ContentPage
+    x:Class="PokeApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <Frame>
+                <Image HeightRequest="100" Source="PokeApp.jpg" />
+            </Frame>
+            <ScrollView>
+                <StackLayout>
+                    <Image
+                        FlexLayout.AlignSelf="Center"
+                        Source="PikaPokeball.jpg"
+                        WidthRequest="300" />
+                    <StackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Bienvenu cher dresseur !" />
 
-        <Image FlexLayout.Basis="30%" Source="PikaPokeball.jpg" FlexLayout.AlignSelf="Center"/>
+                        <Label HorizontalTextAlignment="Center" Text="PokeApp est une application gratuite développée en France et crée en 2022, constituée d'un Pokedex complet regroupant toutes les informations essentielles et détaillées sur chaque Pokémon : les types, les attaques, les versions et tellement plus." />
+                        <Label HorizontalTextAlignment="Center" Text="Plus de 905 Pokémons incluant également les Pokémon du dernier jeu : Légendes Pokémon : Arceus !" />
 
-        <Label Text="Bienvenu cher dresseur !" HorizontalTextAlignment="Center" FontAttributes="Bold" FlexLayout.Basis="5%" FontSize="Caption"/>
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Utilisez nos nouvelles fonctionnalités : " />
 
-        <Label FlexLayout.Basis="10%" HorizontalTextAlignment="Center" FontSize="Caption" Text="PokeApp est une application gratuite développée en France et crée en 2022, constituée d'un Pokedex complet regroupant toutes les informations essentielles et détaillées sur chaque Pokémon : les types, les attaques, les versions et tellement plus."/>
-        <Label FlexLayout.Basis="7%" HorizontalTextAlignment="Center" FontSize="Caption" Text="Plus de 905 Pokémons incluant également les Pokémon du dernier jeu : Légendes Pokémon : Arceus !"/>
+                        <Label HorizontalTextAlignment="Center" Text="PokeNew : Crée vos propres Pokémons en lui donnant son apparence, ses compétences, ses attaques, et ses évolutions que vous souhaitez !" />
+                        <Label HorizontalTextAlignment="Center" Text="PokeDeck : Construisez votre propre deck avec vos Pokémons préférez ou vos propres Pokémon que vous avez créé en réalisant les meilleurs combos et associations." />
 
-        <Label FlexLayout.Basis="5%" HorizontalTextAlignment="Center" FontSize="Caption" Text="Utilisez nos nouvelles fonctionnalités : "  FontAttributes="Bold"/>
-
-        <Label FlexLayout.Basis="8%" HorizontalTextAlignment="Center" FontSize="Caption" Text="PokeNew : Crée vos propres Pokémons en lui donnant son apparence, ses compétences, ses attaques, et ses évolutions que vous souhaitez !"/>
-        <Label FlexLayout.Basis="10%" HorizontalTextAlignment="Center" FontSize="Caption" Text="PokeDeck : Construisez votre propre deck avec vos Pokémons préférez ou vos propres Pokémon que vous avez créé en réalisant les meilleurs combos et associations."/>
-
-        <Label FlexLayout.Basis="5%" HorizontalTextAlignment="Center" FontSize="Caption" Text="Bonne chasse / découverte !"  FontAttributes="Bold"/>
-    </FlexLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Bonne chasse / découverte !" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </FlexLayout>
+    </ContentPage.Content>
 </ContentPage>
