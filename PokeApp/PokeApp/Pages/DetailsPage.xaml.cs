@@ -12,9 +12,10 @@ namespace PokeApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage()
+        public DetailsPage(Pokemon pokemon)
         {
             InitializeComponent();
+            BindingContext = pokemon;
         }
     }
 }

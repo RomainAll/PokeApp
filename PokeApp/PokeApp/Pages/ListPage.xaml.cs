@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using System.Linq;
 using PokeApp.ViewModels;
 
 namespace PokeApp
@@ -16,9 +17,15 @@ namespace PokeApp
 
         }
 
-        public void Selection(Object sender, SelectionChangedEventArgs eventArgs)
+        async void Selection(Object sender, SelectionChangedEventArgs eventArgs)
         {
-
+            Pokemon selectedPokemon = (eventArgs.CurrentSelection.FirstOrDefault() as Pokemon);
+            if (selectedPokemon == null)
+            {
+                return;
+            }
+            (sender as CollectionView).SelectedItem = null;
+            await Navigation.PushAsync(new DetailsPage(selectedPokemon));
         }
     }
 }

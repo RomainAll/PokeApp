@@ -38,9 +38,10 @@ namespace PokeApp.ViewModels
                 {
                     monPokemon.FrameType2 = true;
                     monPokemon.Type2 = pokemon.Types[1].Type.Name.ToUpper();
+                    monPokemon.TypeColor2 = Constantes.ColorDictionary[monPokemon.Type2.ToLower()];
                 }
 
-                monPokemon.TypeColor = Constantes.ColorDictionary[monPokemon.Type1.ToLower()];
+                monPokemon.TypeColor1 = Constantes.ColorDictionary[monPokemon.Type1.ToLower()];
                 MyList.Add(monPokemon);
             }
         }

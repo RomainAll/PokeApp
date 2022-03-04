@@ -1,18 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PokeApp.DetailsPage">
-    <FlexLayout Direction="Column">
+
+<ContentPage
+    x:Class="PokeApp.DetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout>
         <Frame>
-            <Image Source="PokeInfo.jpg" HeightRequest="100"/>
+            <Image HeightRequest="100" Source="PokeInfo.jpg" />
         </Frame>
+        <Frame
+            Margin="20"
+            BackgroundColor="{Binding TypeColor1}"
+            CornerRadius="20">
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Frame
+                    BorderColor="Black"
+                    CornerRadius="20"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Image
+                            HeightRequest="200"
+                            Source="{Binding Url}"
+                            WidthRequest="200" />
+                        <StackLayout Spacing="20">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="20">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    Text="{Binding Name}" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    Text="{Binding Number}" />
+                            </StackLayout>
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <Frame
+                                    BackgroundColor="{Binding TypeColor1}"
+                                    BorderColor="Black"
+                                    CornerRadius="20">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        Text="{Binding Type1}" />
+                                </Frame>
+                                <Frame
+                                    BackgroundColor="{Binding TypeColor2}"
+                                    BorderColor="Black"
+                                    CornerRadius="20"
+                                    IsVisible="{Binding FrameType2}">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        Text="{Binding Type2}" />
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
 
-        <StackLayout
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                Margin="20,0,20,0">
+                </Frame>
 
-        </StackLayout>
 
-        </FlexLayout>
+            </StackLayout>
+
+        </Frame>
+    </StackLayout>
 </ContentPage>

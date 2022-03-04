@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PokeApp
 {
-    internal class Pokemon
+    public class Pokemon
     {
         public String Name { get; set; }
 
@@ -16,7 +16,9 @@ namespace PokeApp
 
         public String Number { get; set; }
 
-        public String TypeColor { get; set; }
+        public String TypeColor1 { get; set; }
+
+        public String TypeColor2 { get; set; }
 
         public Boolean FrameType2 { get; set; }
     }
