@@ -21,5 +21,25 @@ namespace PokeApp
         public String TypeColor2 { get; set; }
 
         public Boolean FrameType2 { get; set; }
+
+        public Double Poids { get; set; }
+
+        public Double Taille { get; set; }
+
+        public String Description { get; set; }
+
+        public String UrlShiny { get; set; }
+
+        public Double Hp { get; set; }
+
+        public Double Attaque { get; set; }
+
+        public Double Defense { get; set; }
+        public Double AttaqueSpeciale { get; set; }
+
+        public Double DefenseSpeciale { get; set; }
+
+        public Double Vitesse { get; set; }
+
     }
 }

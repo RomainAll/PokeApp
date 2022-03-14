@@ -17,5 +17,10 @@ namespace PokeApp
             InitializeComponent();
             BindingContext = pokemon;
         }
+
+        public async void goBack(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

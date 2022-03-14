@@ -24,44 +24,65 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame
+                        Padding="0"
                         BackgroundColor="{Binding TypeColor1}"
                         BorderColor="Black"
                         CornerRadius="20">
-                        <StackLayout Orientation="Horizontal">
-                            <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
-                                <StackLayout Orientation="Horizontal" Spacing="20">
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        Text="{Binding Name}" />
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        Text="{Binding Number}" />
+                        <Frame
+                            BackgroundColor="#5fff"
+                            BorderColor="Black"
+                            CornerRadius="20">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Spacing="10" VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="{Binding Name}" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="{Binding Number}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Frame
+                                            Padding="10,5,10,5"
+                                            BackgroundColor="{Binding TypeColor1}"
+                                            BorderColor="Black"
+                                            CornerRadius="20">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                Text="{Binding Type1}"
+                                                TextColor="White" />
+                                        </Frame>
+                                        <Frame
+                                            Padding="10,5,10,5"
+                                            BackgroundColor="{Binding TypeColor2}"
+                                            BorderColor="Black"
+                                            CornerRadius="20"
+                                            IsVisible="{Binding FrameType2}">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                Text="{Binding Type2}"
+                                                TextColor="White" />
+                                        </Frame>
+                                    </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <Frame BorderColor="Black" CornerRadius="20">
-                                        <Label FontAttributes="Bold" FontSize="12" Text="{Binding Type1}" />
-                                    </Frame>
-                                    <Frame
-                                        BorderColor="Black"
-                                        CornerRadius="20"
-                                        IsVisible="{Binding FrameType2}">
-                                        <Label FontAttributes="Bold" FontSize="12" Text="{Binding Type2}" />
-                                    </Frame>
-                                </StackLayout>
+                                <Frame
+                                    BorderColor="Black"
+                                    CornerRadius="20"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="50"
+                                        Scale="2"
+                                        Source="{Binding Url}"
+                                        WidthRequest="50" />
+                                </Frame>
                             </StackLayout>
-                            <Frame
-                                BorderColor="Black"
-                                CornerRadius="20"
-                                HorizontalOptions="EndAndExpand"
-                                VerticalOptions="CenterAndExpand">
-                                <Image
-                                    HeightRequest="50"
-                                    WidthRequest="50"
-                                    Source="{Binding Url}"/>
-                            </Frame>
-                        </StackLayout>
+                        </Frame>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

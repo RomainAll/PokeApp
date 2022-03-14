@@ -4,71 +4,258 @@
     x:Class="PokeApp.DetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Frame>
-            <Image HeightRequest="100" Source="PokeInfo.jpg" />
-        </Frame>
-        <Frame
-            Margin="20"
-            BackgroundColor="{Binding TypeColor1}"
-            CornerRadius="20">
-            <StackLayout HorizontalOptions="CenterAndExpand">
-                <Frame
-                    BorderColor="Black"
-                    CornerRadius="20"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="CenterAndExpand">
-                    <StackLayout>
-                        <Image
-                            HeightRequest="200"
-                            Source="{Binding Url}"
-                            WidthRequest="200" />
-                        <StackLayout Spacing="20">
-                            <StackLayout
-                                HorizontalOptions="CenterAndExpand"
-                                Orientation="Horizontal"
-                                Spacing="20">
+    <ScrollView>
+        <StackLayout>
+            <Frame>
+                <Image HeightRequest="100" Source="PokeInfo.jpg" />
+            </Frame>
+            <Frame
+                Margin="20"
+                BackgroundColor="{Binding TypeColor1}"
+                CornerRadius="20">
+                <StackLayout HorizontalOptions="Center" Spacing="20">
+                    <Frame
+                        BackgroundColor="#afff"
+                        BorderColor="Black"
+                        CornerRadius="20"
+                        VerticalOptions="Center">
+                        <StackLayout>
+                            <Image
+                                HeightRequest="200"
+                                Source="{Binding Url}"
+                                WidthRequest="200" />
+                            <StackLayout Spacing="20">
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="20">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="{Binding Name}" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="{Binding Number}" />
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="10">
+                                    <Frame
+                                        Padding="10,5,10,5"
+                                        BackgroundColor="{Binding TypeColor1}"
+                                        BorderColor="Black"
+                                        CornerRadius="20">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="12"
+                                            Text="{Binding Type1}"
+                                            TextColor="White" />
+                                    </Frame>
+                                    <Frame
+                                        Padding="10,5,10,5"
+                                        BackgroundColor="{Binding TypeColor2}"
+                                        BorderColor="Black"
+                                        CornerRadius="20"
+                                        IsVisible="{Binding FrameType2}">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="12"
+                                            Text="{Binding Type2}"
+                                            TextColor="White" />
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="30">
+                                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="Taille :"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="17"
+                                            Text="{Binding Taille}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="17"
+                                            Text="m"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="Poids :"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="17"
+                                            Text="{Binding Poids}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="17"
+                                            Text="kg"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="Center">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Text="A propos :" />
+                                    <Label
+                                        FontSize="15"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Description}" />
+                                </StackLayout>
+
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="20"
-                                    Text="{Binding Name}" />
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="20"
-                                    Text="{Binding Number}" />
-                            </StackLayout>
-                            <StackLayout
-                                HorizontalOptions="CenterAndExpand"
-                                Orientation="Horizontal"
-                                Spacing="10">
-                                <Frame
+                                    HorizontalTextAlignment="Center"
+                                    Text="Stats :" />
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                        <Label FontSize="17" Text=" 💚 Hp =" />
+                                        <Label
+                                            x:Name="LabelHp"
+                                            FontSize="17"
+                                            Text="{Binding Hp}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideHp"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding Hp}" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                        <Label FontSize="17" Text="⚔️ Attaque =" />
+                                        <Label
+                                            x:Name="LabelAttaque"
+                                            FontSize="17"
+                                            Text="{Binding Attaque}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideAttaque"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding Attaque}" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Label FontSize="17" Text="🔰 Défence =" />
+                                        <Label
+                                            x:Name="LabelDefence"
+                                            FontSize="17"
+                                            Text="{Binding Defense}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideDefence"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding Defense}" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Label FontSize="17" Text="🧨💥 Attaque Spéciale =" />
+                                        <Label
+                                            x:Name="LabelAttaqueSpe"
+                                            FontSize="17"
+                                            Text="{Binding AttaqueSpeciale}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideAttaqueSpe"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding AttaqueSpeciale}" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Label FontSize="17" Text=" 🛡 🗡 Défence Spéciale =" />
+                                        <Label
+                                            x:Name="LabelDefenceSpe"
+                                            FontSize="17"
+                                            Text="{Binding DefenseSpeciale}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideDefenceSpe"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding DefenseSpeciale}" />
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Label FontSize="17" Text="🌪 Vitesse =" />
+                                        <Label
+                                            x:Name="LabelVitesse"
+                                            FontSize="17"
+                                            Text="{Binding Vitesse}" />
+                                    </StackLayout>
+                                    <Slider
+                                        x:Name="SlideVitesse"
+                                        IsEnabled="False"
+                                        Maximum="255"
+                                        MaximumTrackColor="{Binding TypeColor1}"
+                                        Minimum="0"
+                                        ThumbColor="black"
+                                        ThumbImageSource="PokeballSlider.png"
+                                        Value="{Binding Vitesse}" />
+                                </StackLayout>
+
+
+                                <StackLayout HorizontalOptions="Center">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Forme Shiny :" />
+                                    <Image
+                                        HeightRequest="200"
+                                        Source="{Binding UrlShiny}"
+                                        WidthRequest="200" />
+                                </StackLayout>
+
+                                <Button
                                     BackgroundColor="{Binding TypeColor1}"
-                                    BorderColor="Black"
-                                    CornerRadius="20">
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="12"
-                                        Text="{Binding Type1}" />
-                                </Frame>
-                                <Frame
-                                    BackgroundColor="{Binding TypeColor2}"
-                                    BorderColor="Black"
+                                    Clicked="goBack"
                                     CornerRadius="20"
-                                    IsVisible="{Binding FrameType2}">
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="12"
-                                        Text="{Binding Type2}" />
-                                </Frame>
+                                    Text="Retour a la liste" />
                             </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-
-                </Frame>
-
-
-            </StackLayout>
-
-        </Frame>
-    </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
