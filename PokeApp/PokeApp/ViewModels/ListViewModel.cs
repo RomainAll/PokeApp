@@ -32,7 +32,8 @@ namespace PokeApp.ViewModels
                 PokeApiNet.PokemonSpecies pokemonSpecies = await Task.Run(() => pokeApiClient.GetResourceAsync<PokeApiNet.PokemonSpecies>(pokemon.Species));
                 Pokemon monPokemon = new Pokemon();
                 monPokemon.Name = pokemonSpecies.Names.Find(name => name.Language.Name.Equals("fr")).Name.ToString().ToUpper();
-                monPokemon.Number = "#" + pokemon.Id;
+                //monPokemon.Number = "#" + pokemon.Id;
+                monPokemon.Number = pokemon.Id;
                 monPokemon.Url = pokemon.Sprites.FrontDefault;
                 monPokemon.Type1 = Constantes.ColorDictionary[pokemon.Types[0].Type.Name.ToLower()].Item1.ToUpper();
                 if (pokemon.Types.Count == 2)
@@ -53,8 +54,10 @@ namespace PokeApp.ViewModels
                 monPokemon.AttaqueSpeciale = pokemon.Stats[3].BaseStat;
                 monPokemon.DefenseSpeciale = pokemon.Stats[4].BaseStat;
                 monPokemon.Vitesse = pokemon.Stats[5].BaseStat;
-
+                await App.PokeRepository.AddNewUserAsync(monPokemon);
                 MyList.Add(monPokemon);
+
+
             }
         }
 

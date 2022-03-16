@@ -18,7 +18,7 @@
                         <Label
                             FontAttributes="Bold"
                             HorizontalTextAlignment="Center"
-                            Text="Bienvenu cher dresseur !" />
+                            Text="Bienvenue cher dresseur !" />
 
                         <Label HorizontalTextAlignment="Center" Text="PokeApp est une application gratuite développée en France et crée en 2022, constituée d'un Pokedex complet regroupant toutes les informations essentielles et détaillées sur chaque Pokémon : les types, les attaques, les versions et tellement plus." />
                         <Label HorizontalTextAlignment="Center" Text="Plus de 905 Pokémons incluant également les Pokémon du dernier jeu : Légendes Pokémon : Arceus !" />

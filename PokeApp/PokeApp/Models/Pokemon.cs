@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace PokeApp
 {
+    [Table("Pokemon")]
     public class Pokemon
     {
         public String Name { get; set; }
@@ -14,7 +16,8 @@ namespace PokeApp
 
         public String Type2 { get; set; }
 
-        public String Number { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Number { get; set; }
 
         public String TypeColor1 { get; set; }
 
@@ -35,11 +38,13 @@ namespace PokeApp
         public Double Attaque { get; set; }
 
         public Double Defense { get; set; }
+
         public Double AttaqueSpeciale { get; set; }
 
         public Double DefenseSpeciale { get; set; }
 
         public Double Vitesse { get; set; }
+
 
     }
 }

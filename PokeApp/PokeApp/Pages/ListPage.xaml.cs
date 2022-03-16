@@ -17,6 +17,8 @@ namespace PokeApp
 
         }
 
+        public static object Instance { get; internal set; }
+
         async void Selection(Object sender, SelectionChangedEventArgs eventArgs)
         {
             Pokemon selectedPokemon = (eventArgs.CurrentSelection.FirstOrDefault() as Pokemon);
