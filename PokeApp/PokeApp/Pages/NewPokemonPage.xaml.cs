@@ -17,7 +17,8 @@ namespace PokeApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewPokemonPage : ContentPage
     {
-       
+        private MediaFile Image1 { get; set;}
+        private MediaFile Image2 { get; set;}
         public NewPokemonPage()
         {
             InitializeComponent();
@@ -32,14 +33,13 @@ namespace PokeApp
                 return;
             }
 
-            var file = await CrossMedia.Current.PickPhotoAsync();
-            if (file == null)
+            Image1 = await CrossMedia.Current.PickPhotoAsync();
+            if (Image1 == null)
             {
                 return;
             }
-            imagePoke.Source = ImageSource.FromStream(() => file.GetStream());
+            imagePoke.Source = ImageSource.FromStream(() => Image1.GetStream());
         }
-
 
         private async void OnTakePictureShiny(object sender, EventArgs e)
         {
@@ -49,57 +49,82 @@ namespace PokeApp
                 return;
             }
 
-            var file = await CrossMedia.Current.PickPhotoAsync();
-            if (file == null)
+            Image2 = await CrossMedia.Current.PickPhotoAsync();
+            if (Image2 == null)
             {
                 return;
             }
-            imagePokeShiny.Source = ImageSource.FromStream(() => file.GetStream());
+            imagePokeShiny.Source = ImageSource.FromStream(() => Image2.GetStream());
         }
 
         private async void OnNewButtonClicked(object sender, EventArgs e)
         {
-           Pokemon pokemon = new Pokemon();
-            pokemon.Name = nomPoke.Text;
-            //url
-            pokemon.Type1 = (string)pickerType.SelectedItem;
-            pokemon.Type2 = (string)pickerType2.SelectedItem;
-            //number
-            //typecolor1
-            //typecolor2
-            //FrameType 2
+            Pokemon pokemon = new Pokemon();
+            pokemon.Name = nomPoke.Text.ToUpper();
+            pokemon.Url = Image1.Path;
+            pokemon.UrlShiny = Image2.Path;
+            string monType1EnFr = (string)pickerType.SelectedItem;
+
+            foreach (var typeinfo in Constantes.ColorDictionary)
+            {
+                if (typeinfo.Value.Item1 == monType1EnFr)
+                {
+                    pokemon.Type1 = Constantes.ColorDictionary[typeinfo.Key].Item1.ToUpper();
+                    pokemon.TypeColor1 = Constantes.ColorDictionary[typeinfo.Key].Item2;
+                }
+            }
+            if (pickerType2.SelectedItem != null)
+            {
+                pokemon.FrameType2 = true;
+                string monType2EnFr = (string)pickerType2.SelectedItem;
+                foreach (var typeinfo in Constantes.ColorDictionary)
+                {
+                    if (typeinfo.Value.Item1 == monType2EnFr)
+                    {
+                        pokemon.Type2 = Constantes.ColorDictionary[typeinfo.Key].Item1.ToUpper();
+                        pokemon.TypeColor2 = Constantes.ColorDictionary[typeinfo.Key].Item2;
+                    }
+                }
+            }
             pokemon.Poids = Convert.ToDouble(poids.Text);        
             pokemon.Taille = Convert.ToDouble(taille.Text);
             pokemon.Description = description.Text;
-            //urlShiny
-            pokemon.Hp = SlideHp.Value;
-            pokemon.Attaque = SlideAttaque.Value;
-            pokemon.Defense = SlideDefense.Value;
-            pokemon.AttaqueSpeciale = SlideAttaqueSpe.Value;
-            pokemon.DefenseSpeciale = SlideDefenceSpe.Value;
-            pokemon.Vitesse = SlideVitesse.Value;
+            pokemon.Hp = (int)SlideHp.Value;
+            pokemon.Attaque = (int)SlideAttaque.Value;
+            pokemon.Defense = (int)SlideDefense.Value;
+            pokemon.AttaqueSpeciale = (int)SlideAttaqueSpe.Value;
+            pokemon.DefenseSpeciale = (int)SlideDefenseSpe.Value;
+            pokemon.Vitesse = (int)SlideVitesse.Value;
 
-            //ListPage.Instance.MyList = await App.PokeRepository.GetUsersAsync();            
-            //List<Pokemon> pokemons = await App.PokeRepository.GetUsersAsync();
-            
-
-            await App.PokeRepository.AddNewUserAsync(pokemon);
-            List<Pokemon> pokemons_bd = await App.PokeRepository.GetUsersAsync();
+            await App.PokeRepository.AddNewPokemonAsync(pokemon);
+            List<Pokemon> pokemons_bd = await App.PokeRepository.GetPokemonsAsync();
             ListViewModel.Instance.MyList.Clear();
             foreach (var pokemoni in pokemons_bd)
             {
                 ListViewModel.Instance.MyList.Add(pokemoni);
             } 
-            statusMessage.Text = App.PokeRepository.StatusMessage;         
+            statusMessage.Text = App.PokeRepository.StatusMessage;
 
-        }
-
-        public void onSubmit(Object sender, EventArgs e)
-        {
-            string type = pickerType.SelectedItem.ToString();
-            string type2 = pickerType2.SelectedItem.ToString();
-            Console.WriteLine(type);
-            Console.WriteLine(type2);
+            nomPoke.Text = String.Empty;
+            description.Text = String.Empty;
+            taille.Text = String.Empty;
+            poids.Text = String.Empty;
+            pickerType.SelectedItem = null;
+            pickerType2.SelectedItem = null;
+            SlideHp.Value = 0;
+            SlideAttaque.Value = 0;
+            SlideAttaqueSpe.Value = 0;
+            SlideDefense.Value = 0;
+            SlideDefenseSpe.Value = 0;
+            SlideVitesse.Value = 0;
+            imagePoke.Source = "";
+            imagePokeShiny.Source = "";
+            LabelHp.Text = String.Empty;
+            LabelAttaque.Text = String.Empty;
+            LabelAttaqueSpe.Text = String.Empty;
+            LabelDefense.Text = String.Empty;
+            LabelDefenseSpe.Text = String.Empty;
+            LabelVitesse.Text = String.Empty;
         }
 
         private void Slide_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -108,11 +133,8 @@ namespace PokeApp
             LabelAttaque.Text = SlideAttaque.Value.ToString(".");
             LabelDefense.Text = SlideDefense.Value.ToString(".");
             LabelAttaqueSpe.Text = SlideAttaqueSpe.Value.ToString(".");
-            LabelDefenceSpe.Text = SlideDefenceSpe.Value.ToString(".");
+            LabelDefenseSpe.Text = SlideDefenseSpe.Value.ToString(".");
             LabelVitesse.Text = SlideVitesse.Value.ToString(".");
-            
         }
-
     }
-
 }

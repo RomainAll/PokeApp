@@ -19,7 +19,7 @@ namespace PokeApp.Repositories
         }
 
 
-        public async Task AddNewUserAsync(Pokemon pokemon)
+        public async Task AddNewPokemonAsync(Pokemon pokemon)
         {
             int result = 0;
             try
@@ -35,7 +35,7 @@ namespace PokeApp.Repositories
 
         }
 
-        public async Task<List<Pokemon>> GetUsersAsync()
+        public async Task<List<Pokemon>> GetPokemonsAsync()
         {
             try
             {

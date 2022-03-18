@@ -9,7 +9,7 @@
                 <Image HeightRequest="100" Source="PokeApp.jpg" />
             </Frame>
             <ScrollView>
-                <StackLayout>
+                <StackLayout Margin="10,0">
                     <Image
                         FlexLayout.AlignSelf="Center"
                         Source="PikaPokeball.jpg"

@@ -33,17 +33,17 @@ namespace PokeApp
 
         public String UrlShiny { get; set; }
 
-        public Double Hp { get; set; }
+        public int Hp { get; set; }
 
-        public Double Attaque { get; set; }
+        public int Attaque { get; set; }
 
-        public Double Defense { get; set; }
+        public int Defense { get; set; }
 
-        public Double AttaqueSpeciale { get; set; }
+        public int AttaqueSpeciale { get; set; }
 
-        public Double DefenseSpeciale { get; set; }
+        public int DefenseSpeciale { get; set; }
 
-        public Double Vitesse { get; set; }
+        public int Vitesse { get; set; }
 
 
     }
