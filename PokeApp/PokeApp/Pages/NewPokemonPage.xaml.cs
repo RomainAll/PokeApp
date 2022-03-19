@@ -59,6 +59,33 @@ namespace PokeApp
 
         private async void OnNewButtonClicked(object sender, EventArgs e)
         {
+
+            if ((nomPoke.Text == String.Empty) || 
+                (description.Text == String.Empty) ||
+                (taille.Text == String.Empty) ||
+            (poids.Text == String.Empty) ||
+            (pickerType.SelectedItem == null) ||
+            (SlideHp.Value == 0) ||
+            (SlideAttaque.Value == 0) ||
+            (SlideAttaqueSpe.Value == 0) ||
+            (SlideDefense.Value == 0) ||
+            (SlideDefenseSpe.Value == 0) ||
+            (SlideVitesse.Value == 0) ||
+            (imagePoke.Source ==  null) ||
+            (imagePokeShiny.Source == null) ||
+            (LabelHp.Text == String.Empty) ||
+            (LabelAttaque.Text == String.Empty) ||
+            (LabelAttaqueSpe.Text == String.Empty) ||
+            (LabelDefense.Text == String.Empty) ||
+            (LabelDefenseSpe.Text == String.Empty) ||
+            (LabelVitesse.Text == String.Empty))
+            {
+                await DisplayAlert("Ajout impossible !", "Merci de remplir tous les champs", "OK");
+                return;
+            }
+            else { 
+
+
             Pokemon pokemon = new Pokemon();
             pokemon.Name = nomPoke.Text.ToUpper();
             pokemon.Url = Image1.Path;
@@ -102,29 +129,31 @@ namespace PokeApp
             foreach (var pokemoni in pokemons_bd)
             {
                 ListViewModel.Instance.MyList.Add(pokemoni);
-            } 
-            statusMessage.Text = App.PokeRepository.StatusMessage;
+            }
+                await DisplayAlert("Ajout réussi !", "le pokemon : " + pokemon.Name + " a été ajouté ", "OK");
+                statusMessage.Text = App.PokeRepository.StatusMessage;
 
-            nomPoke.Text = String.Empty;
-            description.Text = String.Empty;
-            taille.Text = String.Empty;
-            poids.Text = String.Empty;
-            pickerType.SelectedItem = null;
-            pickerType2.SelectedItem = null;
-            SlideHp.Value = 0;
-            SlideAttaque.Value = 0;
-            SlideAttaqueSpe.Value = 0;
-            SlideDefense.Value = 0;
-            SlideDefenseSpe.Value = 0;
-            SlideVitesse.Value = 0;
-            imagePoke.Source = "";
-            imagePokeShiny.Source = "";
-            LabelHp.Text = String.Empty;
-            LabelAttaque.Text = String.Empty;
-            LabelAttaqueSpe.Text = String.Empty;
-            LabelDefense.Text = String.Empty;
-            LabelDefenseSpe.Text = String.Empty;
-            LabelVitesse.Text = String.Empty;
+                nomPoke.Text = String.Empty;
+                description.Text = String.Empty;
+                taille.Text = String.Empty;
+                poids.Text = String.Empty;
+                pickerType.SelectedItem = null;
+                pickerType2.SelectedItem = null;
+                SlideHp.Value = 0;
+                SlideAttaque.Value = 0;
+                SlideAttaqueSpe.Value = 0;
+                SlideDefense.Value = 0;
+                SlideDefenseSpe.Value = 0;
+                SlideVitesse.Value = 0;
+                imagePoke.Source = "";
+                imagePokeShiny.Source = "";
+                LabelHp.Text = String.Empty;
+                LabelAttaque.Text = String.Empty;
+                LabelAttaqueSpe.Text = String.Empty;
+                LabelDefense.Text = String.Empty;
+                LabelDefenseSpe.Text = String.Empty;
+                LabelVitesse.Text = String.Empty;
+            }
         }
 
         private void Slide_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -136,5 +165,6 @@ namespace PokeApp
             LabelDefenseSpe.Text = SlideDefenseSpe.Value.ToString(".");
             LabelVitesse.Text = SlideVitesse.Value.ToString(".");
         }
+
     }
 }

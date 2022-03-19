@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using PokeApiNet;
 using PokeApp.Models;
+using Xamarin.Forms;
 
 namespace PokeApp.ViewModels
 {
@@ -22,6 +23,7 @@ namespace PokeApp.ViewModels
             MyList = new ObservableCollection<Pokemon>();
 
             InitList();
+
         }
 
         public async void InitList()

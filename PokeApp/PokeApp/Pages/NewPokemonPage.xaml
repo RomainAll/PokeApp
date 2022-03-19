@@ -47,8 +47,8 @@
                         BackgroundColor="Transparent"
                         ClearButtonVisibility="WhileEditing"
                         MaxLength="12"
-                        Text=" "
-                        TextColor="Black" />
+                        TextColor="Black"
+                        />
                 </StackLayout>
 
                 <!--<StackLayout>
@@ -74,7 +74,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
-                        Text=" Entrer la taille : " />
+                        Text=" Entrer la taille (m) : " />
                     <Entry
                         x:Name="taille"
                         BackgroundColor="Transparent"
@@ -89,7 +89,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
-                        Text=" Entrer le poids : " />
+                        Text=" Entrer le poids (kg) : " />
                     <Entry
                         x:Name="poids"
                         BackgroundColor="Transparent"
@@ -338,10 +338,6 @@
                         Text=" 😀 Ajouter votre pokémon 😀" />
                     <Label x:Name="statusMessage" />
                 </StackLayout>
-
-                <!--<Entry x:Name="newUser" Placeholder="Nom"/>
-                <Button x:Name="newButton" Text="Ajouter" Clicked="OnNewButtonClicked" />
-                <Button x:Name="getButton" Text="Liste" Clicked="OnGetButtonClicked"  />-->
 
             </StackLayout>
         </ScrollView>

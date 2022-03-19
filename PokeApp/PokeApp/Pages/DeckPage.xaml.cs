@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PokeApp.ViewModels;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +12,22 @@ namespace PokeApp
         public DeckPage()
         {
             InitializeComponent();
+            BindingContext = ListViewModel.Instance;
+
         }
+
+        public static object Instance { get; internal set; }
+
+        async void Selection(Object sender, SelectionChangedEventArgs eventArgs)
+        {
+            Pokemon selectedPokemon = (eventArgs.CurrentSelection.FirstOrDefault() as Pokemon);
+            if (selectedPokemon == null)
+            {
+                return;
+            }
+            (sender as CollectionView).SelectedItem = null;
+            await Navigation.PushAsync(new DetailsPage(selectedPokemon));
+        }
+
     }
 }
