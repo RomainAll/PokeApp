@@ -25,6 +25,15 @@ namespace PokeApp.ViewModels
             InitList();
 
         }
+        public void PokeList(List<Pokemon> listPokemons)
+        {
+            MyList.Clear();
+            foreach (Pokemon pokemon in listPokemons)
+            {
+                MyList.Add(pokemon);
+            }
+            
+        }
 
         public async void InitList()
         {

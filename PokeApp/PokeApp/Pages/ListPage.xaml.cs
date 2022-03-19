@@ -29,5 +29,16 @@ namespace PokeApp
             (sender as CollectionView).SelectedItem = null;
             await Navigation.PushAsync(new DetailsPage(selectedPokemon));
         }
+
+        void SearchBarPoke(object sender, TextChangedEventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
+
+            ListViewModel.Instance.PokeList(
+                ListViewModel.Instance.MyList.ToList().Where(
+                    pokemon => pokemon.Name.ToUpper().Contains(
+                        e.NewTextValue.ToUpper()
+                        )).ToList());
+        }
     }
 }
