@@ -45,6 +45,8 @@ namespace PokeApp
 
         public int Vitesse { get; set; }
 
+        public Boolean isOnPokeDeck { get; set; }
+
 
     }
 }

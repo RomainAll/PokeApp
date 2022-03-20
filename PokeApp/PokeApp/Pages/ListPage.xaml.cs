@@ -35,7 +35,7 @@ namespace PokeApp
             SearchBar searchBar = (SearchBar)sender;
 
             ListViewModel.Instance.PokeList(
-                ListViewModel.Instance.MyList.ToList().Where(
+                ListViewModel.Instance.PokemonsList.ToList().Where(
                     pokemon => pokemon.Name.ToUpper().Contains(
                         e.NewTextValue.ToUpper()
                         )).ToList());

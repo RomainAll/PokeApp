@@ -245,6 +245,14 @@
                                     WidthRequest="200" />
                             </StackLayout>
 
+                            <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Ajout au PokeDeck :" />
+                            
+                            <Switch Toggled="OnToggled" />
+
                             <Button
                                 BackgroundColor="{Binding TypeColor1}"
                                 Clicked="goBack"

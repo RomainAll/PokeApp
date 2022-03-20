@@ -9,7 +9,8 @@
             <Image HeightRequest="100" Source="PokeDex.jpg" />
         </Frame>
         <SearchBar TextChanged="SearchBarPoke"
-                   CancelButtonColor="Orange"/>
+                   CancelButtonColor="Orange"
+                   Placeholder="Entrer le nom du Pokemon"/>
         <CollectionView
             x:Name="pokemonsList"
             Margin="20,10"

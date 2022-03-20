@@ -51,11 +51,6 @@
                         />
                 </StackLayout>
 
-                <!--<StackLayout>
-                    <Label Text=" Numéro : " FontAttributes="Bold"  FontSize="20" ></Label>
-                    <Entry  ClearButtonVisibility="WhileEditing" MaxLength="5" Keyboard="Numeric"   x:Name="entry2" Text=" "  TextColor="Black" BackgroundColor="Transparent" ></Entry>
-                </StackLayout>-->
-
                 <StackLayout>
                     <Label
                         FontAttributes="Bold"
@@ -161,7 +156,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
-                        Text=" Type 2 : " />
+                        Text=" Type 2 (facultatif) : " />
                     <Picker
                         x:Name="pickerType2"
                         Title="Sélectionner un Type : "
@@ -188,11 +183,6 @@
                         </Picker.Items>
                     </Picker>
                 </StackLayout>
-
-                <!--<StackLayout>
-                    <BoxView BindingContext="{x:Reference Slider}" Opacity="{Binding Value}" Color="Blue" ></BoxView>
-                    <Slider x:Name="Slider" Value="0.1" ThumbColor="red" MinimumTrackColor="Pink" MaximumTrackColor="Purple"></Slider>
-                </StackLayout>-->
 
                 <StackLayout>
                     <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
@@ -336,7 +326,6 @@
                         x:Name="getButton"
                         Clicked="OnNewButtonClicked"
                         Text=" 😀 Ajouter votre pokémon 😀" />
-                    <Label x:Name="statusMessage" />
                 </StackLayout>
 
             </StackLayout>

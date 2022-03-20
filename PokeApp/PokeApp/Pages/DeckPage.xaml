@@ -1,12 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PokeApp.DeckPage">
-    <FlexLayout Direction="Column">
+<ContentPage
+    x:Class="PokeApp.DeckPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout>
         <Frame>
-            <Image Source="PokeDeck.jpg" HeightRequest="100"/>
+            <Image HeightRequest="100" Source="PokeDeck.jpg" />
         </Frame>
-
-
-    </FlexLayout>
+        <CollectionView
+            x:Name="pokemonsList"
+            Margin="10,10"
+            ItemsSource="{Binding PokeDeck}"
+            SelectionChanged="Selection"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    Orientation="Vertical"
+                    Span="2"
+                    HorizontalItemSpacing="10"
+                    VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="{Binding TypeColor1}"
+                        BorderColor="Black"
+                        CornerRadius="20">
+                        <Frame
+                            BackgroundColor="#5fff"
+                            BorderColor="Black"
+                            CornerRadius="20"
+                            Padding="10">
+                            <StackLayout>
+                                <Frame
+                                    BorderColor="Black"
+                                    CornerRadius="20"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="50"
+                                        Scale="2"
+                                        Source="{Binding Url}"
+                                        WidthRequest="50" />
+                                </Frame>
+                                <StackLayout Spacing="10" VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center"    >
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="15"
+                                            Text="{Binding Name}" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="15"
+                                            Text="{Binding Number, StringFormat='#{0}'}" />
+                                    </StackLayout>
+                                    <StackLayout Spacing="5" HorizontalOptions="Center">
+                                        <Frame
+                                            Padding="10,5,10,5"
+                                            BackgroundColor="{Binding TypeColor1}"
+                                            BorderColor="Black"
+                                            CornerRadius="20">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="10"
+                                                Text="{Binding Type1}"
+                                                TextColor="White" />
+                                        </Frame>
+                                        <Frame
+                                            Padding="10,5,10,5"
+                                            BackgroundColor="{Binding TypeColor2}"
+                                            BorderColor="Black"
+                                            CornerRadius="20"
+                                            IsVisible="{Binding FrameType2}">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="10"
+                                                Text="{Binding Type2}"
+                                                TextColor="White" />
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

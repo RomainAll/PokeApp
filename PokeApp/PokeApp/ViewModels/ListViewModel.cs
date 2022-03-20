@@ -12,6 +12,8 @@ namespace PokeApp.ViewModels
         private static ListViewModel _instance = new ListViewModel();
         public static ListViewModel Instance { get { return _instance; } }
 
+        public List<Pokemon> PokemonsList = new List<Pokemon>();
+
         public ObservableCollection<Pokemon> MyList
         {
             get { return GetValue<ObservableCollection<Pokemon>>(); }
@@ -21,7 +23,7 @@ namespace PokeApp.ViewModels
         public ListViewModel()
         {
             MyList = new ObservableCollection<Pokemon>();
-
+            PokeDeck = new ObservableCollection<Pokemon>();
             InitList();
 
         }
@@ -35,15 +37,40 @@ namespace PokeApp.ViewModels
             
         }
 
+        public ObservableCollection<Pokemon> PokeDeck
+        {
+            get { return GetValue<ObservableCollection<Pokemon>>(); }
+            set { SetValue(value); }
+        }
+
+        public void PokeListPokeDeck(List<Pokemon> listPokemons)
+        {
+            PokeDeck.Clear();
+            foreach (Pokemon pokemon in listPokemons)
+            {
+                PokeDeck.Add(pokemon);
+            }
+
+        }
+
         public async void InitList()
         {
             List<Pokemon> listPokemons = await App.PokeRepository.GetPokemonsAsync();
+            List<Pokemon> pokeDeckDB = await App.PokeDeckRepository.GetPokemonsAsync();
             PokeApiClient pokeApiClient = new PokeApiClient();
             if (listPokemons.Count != 0)
             {
                 foreach (Pokemon pokemon in listPokemons)
                 {
                     MyList.Add(pokemon);
+                    PokemonsList.Add(pokemon);
+                }
+            }
+            if (pokeDeckDB.Count != 0)
+            {
+                foreach (Pokemon pokemon in pokeDeckDB)
+                {
+                    if (pokemon.isOnPokeDeck == true) { PokeDeck.Add(pokemon); }
                 }
             }
             else
@@ -54,7 +81,6 @@ namespace PokeApp.ViewModels
                     PokeApiNet.PokemonSpecies pokemonSpecies = await Task.Run(() => pokeApiClient.GetResourceAsync<PokeApiNet.PokemonSpecies>(pokemon.Species));
                     Pokemon monPokemon = new Pokemon();
                     monPokemon.Name = pokemonSpecies.Names.Find(name => name.Language.Name.Equals("fr")).Name.ToString().ToUpper();
-                    //monPokemon.Number = "#" + pokemon.Id;
                     monPokemon.Number = pokemon.Id;
                     monPokemon.Url = pokemon.Sprites.FrontDefault;
                     monPokemon.Type1 = Constantes.ColorDictionary[pokemon.Types[0].Type.Name.ToLower()].Item1.ToUpper();
@@ -78,8 +104,8 @@ namespace PokeApp.ViewModels
                     monPokemon.Vitesse = pokemon.Stats[5].BaseStat;
                     await App.PokeRepository.AddNewPokemonAsync(monPokemon);
                     MyList.Add(monPokemon);
-
-
+                    PokemonsList.Add(monPokemon);
+              
                 }
             }
         }

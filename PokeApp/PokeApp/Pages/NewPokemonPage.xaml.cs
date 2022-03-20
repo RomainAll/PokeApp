@@ -80,7 +80,7 @@ namespace PokeApp
             (LabelDefenseSpe.Text == String.Empty) ||
             (LabelVitesse.Text == String.Empty))
             {
-                await DisplayAlert("Ajout impossible !", "Merci de remplir tous les champs", "OK");
+                await DisplayAlert("Ajout impossible !", "Merci de remplir tous les champs, sauf le type 2 (facultatif)", "OK");
                 return;
             }
             else { 
@@ -126,12 +126,13 @@ namespace PokeApp
             await App.PokeRepository.AddNewPokemonAsync(pokemon);
             List<Pokemon> pokemons_bd = await App.PokeRepository.GetPokemonsAsync();
             ListViewModel.Instance.MyList.Clear();
+            ListViewModel.Instance.PokemonsList.Clear();
             foreach (var pokemoni in pokemons_bd)
             {
                 ListViewModel.Instance.MyList.Add(pokemoni);
+                ListViewModel.Instance.PokemonsList.Add(pokemoni);
             }
                 await DisplayAlert("Ajout réussi !", "le pokemon : " + pokemon.Name + " a été ajouté ", "OK");
-                statusMessage.Text = App.PokeRepository.StatusMessage;
 
                 nomPoke.Text = String.Empty;
                 description.Text = String.Empty;
