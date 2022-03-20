@@ -245,13 +245,17 @@
                                     WidthRequest="200" />
                             </StackLayout>
 
-                            <Label
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label
                                     FontAttributes="Bold"
                                     FontSize="20"
-                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
                                     Text="Ajout au PokeDeck :" />
-                            
-                            <Switch Toggled="OnToggled" />
+
+                                <Switch Toggled="OnToggled" VerticalOptions="Center" />
+                            </StackLayout>
+                           
 
                             <Button
                                 BackgroundColor="{Binding TypeColor1}"
