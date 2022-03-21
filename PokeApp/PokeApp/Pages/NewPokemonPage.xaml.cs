@@ -60,6 +60,7 @@ namespace PokeApp
         // Méthode asynchrone qui permet l'ajout d'un pokémon que l'on crée dans la base de données et permet de l'afficher ensuite dans la liste
         // Elle permet également de vérifier la saisie des différents champs par l'utilisateur (sauf le type n°2 qui est facultatif)
         // Une fois le pokémon ajouté, une alerte de confirmation, nous indique son ajout et on réinitialise les saisies 
+        // (L'ajout ce fait en bas de la liste car nous incrementons les IDs de la liste)
         private async void OnNewButtonClicked(object sender, EventArgs e)
         {
             if ((nomPoke.Text == String.Empty) || 
