@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
- using System. Text;
 using System.Threading.Tasks;
-using PokeApp.Models;
 using SQLite;
 namespace PokeApp.Repositories
 {
     public class PokeRepository
     {
+        // Déclaration de connection de type SQLiteAsyncConnection
         private SQLiteAsyncConnection connection;
 
+        // Déclaration d'un StatusMessage de type string
         public string StatusMessage { get; set; }
 
+        // Constructeur de PokeRepository
         public PokeRepository(string dbPath)
         {
             connection = new SQLiteAsyncConnection(dbPath);
             connection.CreateTableAsync<Pokemon>();
         }
 
-
+        // Méthode qui permet d'essayer l'insertion d'un pokémon (message de confirmation) sinon on retourne une exception avec une explication du problème rencontrer 
         public async Task AddNewPokemonAsync(Pokemon pokemon)
         {
             int result = 0;
@@ -35,6 +36,7 @@ namespace PokeApp.Repositories
 
         }
 
+        // Méthode qui permet d'essayer de récupérer la lite des pokemons sinon on retourne une exception avec une explication du problème
         public async Task<List<Pokemon>> GetPokemonsAsync()
         {
             try

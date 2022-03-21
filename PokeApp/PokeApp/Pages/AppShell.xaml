@@ -9,31 +9,45 @@
 
     <Shell.Resources>
         <ResourceDictionary>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.UnselectedColor" Value="Black" />
+            <Style x:Key="BaseStyle"
+                   TargetType="Element">
+                
+                <Setter Property="Shell.TitleColor"
+                        Value="White" />
+                
+                <Setter Property="Shell.UnselectedColor"
+                        Value="Black" />
+                
             </Style>
-            <Style TargetType="TabBar"  BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar"
+                   BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
     <TabBar>
         <ShellContent Title="PokeApp"
-            Icon="HomeIcon.png">
+                      Icon="HomeIcon.png">
+
             <pokeapp:MainPage />
+
         </ShellContent>
         <ShellContent Title="Pokedex"
-            Icon="PokeDexIcon.png">
+                      Icon="PokeDexIcon.png">
+
             <pokeapp:ListPage />
+
         </ShellContent>
         <ShellContent Title="PokeNew"
-            Icon="AjoutIcon">
+                      Icon="AjoutIcon">
+
             <pokeapp:NewPokemonPage />
+
         </ShellContent>
         <ShellContent Title="PokeDeck"
-            Icon="DeckIcon.png">
+                      Icon="DeckIcon.png">
+
             <pokeapp:DeckPage />
+
         </ShellContent>
     </TabBar>
-
 </Shell>

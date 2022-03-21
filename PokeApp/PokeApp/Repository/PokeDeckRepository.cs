@@ -7,17 +7,20 @@ namespace PokeApp.Repositories
 {
     public class PokeDeckRepository
     {
+        // Déclaration de connection de type SQLiteAsyncConnection
         private SQLiteAsyncConnection connection;
 
+        // Déclaration d'un StatusMessage de type string
         public string StatusMessage { get; set; }
 
+        // Constructeur de PokeDeckRepository
         public PokeDeckRepository(string dbPath)
         {
             connection = new SQLiteAsyncConnection(dbPath);
             connection.CreateTableAsync<Pokemon>();
         }
 
-
+        // Méthode qui permet d'essayer l'insertion d'un pokémon (message de confirmation) sinon on retourne une exception avec une explication du problème
         public async Task AddNewPokemonAsync(Pokemon pokemon)
         {
             int result = 0;
@@ -34,6 +37,7 @@ namespace PokeApp.Repositories
 
         }
 
+        // Méthode qui permet d'essayer de récupérer la lite des pokemons sinon on retourne une exception avec une explication du problème
         public async Task<List<Pokemon>> GetPokemonsAsync()
         {
             try

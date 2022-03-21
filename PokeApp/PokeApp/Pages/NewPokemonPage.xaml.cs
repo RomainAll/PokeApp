@@ -3,11 +3,6 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using PokeApp.ViewModels;
@@ -17,14 +12,18 @@ namespace PokeApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewPokemonPage : ContentPage
     {
+        // Création de deux images de type MediaFile
         private MediaFile Image1 { get; set;}
         private MediaFile Image2 { get; set;}
+
+        // Constructeur de la page NewPokemonPage
         public NewPokemonPage()
         {
             InitializeComponent();
                      
         }
 
+        // Méthode asynchrone permettant d'accéder à la galerie de l'appareil photo afin de selectioner une photo d'un pokémon dans sa galerie 
         private async void OnTakePicture(object sender, EventArgs e)
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
@@ -41,6 +40,7 @@ namespace PokeApp
             imagePoke.Source = ImageSource.FromStream(() => Image1.GetStream());
         }
 
+        // Méthode asynchrone permettant d'accéder à la galerie de l'appareil photo afin de selectioner une photo d'un pokémon shiny dans sa galerie 
         private async void OnTakePictureShiny(object sender, EventArgs e)
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
@@ -57,9 +57,11 @@ namespace PokeApp
             imagePokeShiny.Source = ImageSource.FromStream(() => Image2.GetStream());
         }
 
+        // Méthode asynchrone qui permet l'ajout d'un pokémon que l'on crée dans la base de données et permet de l'afficher ensuite dans la liste
+        // Elle permet également de vérifier la saisie des différents champs par l'utilisateur (sauf le type n°2 qui est facultatif)
+        // Une fois le pokémon ajouté, une alerte de confirmation, nous indique son ajout et on réinitialise les saisies 
         private async void OnNewButtonClicked(object sender, EventArgs e)
         {
-
             if ((nomPoke.Text == String.Empty) || 
                 (description.Text == String.Empty) ||
                 (taille.Text == String.Empty) ||
@@ -132,7 +134,7 @@ namespace PokeApp
                 ListViewModel.Instance.MyList.Add(pokemoni);
                 ListViewModel.Instance.PokemonsList.Add(pokemoni);
             }
-                await DisplayAlert("Ajout réussi !", "le pokemon : " + pokemon.Name + " a été ajouté ", "OK");
+                await DisplayAlert("Ajout réussi !", "Le pokemon : " + pokemon.Name + " a été ajouté ", "OK");
 
                 nomPoke.Text = String.Empty;
                 description.Text = String.Empty;
@@ -157,6 +159,7 @@ namespace PokeApp
             }
         }
 
+        // Méthode permettant de récupérer la valeur de chaque slider avec des nombres entiers
         private void Slide_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             LabelHp.Text = SlideHp.Value.ToString(".");

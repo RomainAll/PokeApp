@@ -6,7 +6,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Frame>
-                <Image HeightRequest="100" Source="PokeApp.jpg" />
+                <Image HeightRequest="100" 
+                       Source="PokeApp.jpg" />
             </Frame>
             <ScrollView>
                 <StackLayout Margin="10,0">
@@ -20,16 +21,22 @@
                             HorizontalTextAlignment="Center"
                             Text="Bienvenue cher dresseur !" />
 
-                        <Label HorizontalTextAlignment="Center" Text="PokeApp est une application gratuite développée en France et crée en 2022, constituée d'un Pokedex complet regroupant toutes les informations essentielles et détaillées sur chaque Pokémon : les types, les statistiques, et tellement plus." />
-                        <Label HorizontalTextAlignment="Center" Text="50 Pokémons plus ceux que vous allez créer" />
+                        <Label HorizontalTextAlignment="Center" 
+                               Text="PokeApp est une application gratuite développée en France et crée en 2022, constituée d'un Pokedex complet regroupant toutes les informations essentielles et détaillées sur chaque Pokémon : les types, les statistiques, et tellement plus." />
+                        
+                        <Label HorizontalTextAlignment="Center" 
+                               Text="50 Pokémons plus ceux que vous allez créer" />
 
                         <Label
                             FontAttributes="Bold"
                             HorizontalTextAlignment="Center"
                             Text="Utilisez nos nouvelles fonctionnalités : " />
 
-                        <Label HorizontalTextAlignment="Center" Text="PokeNew : Crée vos propres Pokémons en lui donnant son apparence, ses statistiques, et sa forme shiny que vous souhaitez !" />
-                        <Label HorizontalTextAlignment="Center" Text="PokeDeck : Construisez votre propre deck avec vos Pokémons préférez ou vos propres Pokémon que vous avez créé en réalisant les meilleurs combos et associations." />
+                        <Label HorizontalTextAlignment="Center" 
+                               Text="PokeNew : Crée vos propres Pokémons en lui donnant son apparence, ses statistiques, et sa forme shiny que vous souhaitez !" />
+                        
+                        <Label HorizontalTextAlignment="Center" 
+                               Text="PokeDeck : Construisez votre propre deck avec vos Pokémons préférez ou vos propres Pokémon que vous avez créé en réalisant les meilleurs combos et associations." />
 
                         <Label
                             FontAttributes="Bold"

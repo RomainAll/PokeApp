@@ -5,6 +5,7 @@ using SQLite;
 
 namespace PokeApp
 {
+    // Dans une table Pokemon, nous déclarons, dans une classe,  chaque donnée dont nous avons besoin pour notre application.
     [Table("Pokemon")]
     public class Pokemon
     {

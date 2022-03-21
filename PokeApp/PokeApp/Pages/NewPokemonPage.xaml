@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <StackLayout>
         <Frame>
-            <Image HeightRequest="100" Source="PokeNew.jpg" />
+            <Image HeightRequest="100" 
+                   Source="PokeNew.jpg" />
         </Frame>
         <ScrollView Margin="20">
             <StackLayout Spacing="30">
@@ -16,6 +17,7 @@
                         FontSize="20"
                         HorizontalTextAlignment="Center"
                         Text=" Image :" />
+
                     <Frame
                         BorderColor="Black"
                         CornerRadius="20"
@@ -28,7 +30,6 @@
                             Source="poke2.png"
                             WidthRequest="50" />
                     </Frame>
-
                 </StackLayout>
 
                 <Image
@@ -50,7 +51,7 @@
                         TextColor="Black"
                         />
                 </StackLayout>
-
+                
                 <StackLayout>
                     <Label
                         FontAttributes="Bold"
@@ -185,7 +186,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -208,7 +210,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -231,7 +234,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -254,7 +258,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -277,7 +282,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -300,7 +306,8 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand" 
+                                 Orientation="Horizontal">
                         <Label
                             FontAttributes="Bold"
                             FontSize="20"
@@ -326,8 +333,8 @@
                         x:Name="getButton"
                         Clicked="OnNewButtonClicked"
                         Text=" 😀 Ajouter votre pokémon 😀" />
+                    <Label x:Name="statusMessage" />
                 </StackLayout>
-
             </StackLayout>
         </ScrollView>
     </StackLayout>

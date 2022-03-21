@@ -3,23 +3,28 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using PokeApiNet;
 using PokeApp.Models;
-using Xamarin.Forms;
 
 namespace PokeApp.ViewModels
 {
     internal class ListViewModel : BaseViewModel
     {
+        //  Déclaration d'une instance de la ListeViewModel
         private static ListViewModel _instance = new ListViewModel();
+
+        // Récupère l'instance de la ListeViewModel
         public static ListViewModel Instance { get { return _instance; } }
 
+        // Déclaration d'une liste PokemonsList de type List<Pokemon>
         public List<Pokemon> PokemonsList = new List<Pokemon>();
 
+        // Création d'un ObservableCollection<Pokemon> MyList
         public ObservableCollection<Pokemon> MyList
         {
             get { return GetValue<ObservableCollection<Pokemon>>(); }
             set { SetValue(value); }
         }
 
+        // Constructeur de la ListViewModel
         public ListViewModel()
         {
             MyList = new ObservableCollection<Pokemon>();
@@ -27,6 +32,8 @@ namespace PokeApp.ViewModels
             InitList();
 
         }
+
+        // Méthode qui permet d'ajouter un pokémon dans la liste MyList
         public void PokeList(List<Pokemon> listPokemons)
         {
             MyList.Clear();
@@ -37,12 +44,14 @@ namespace PokeApp.ViewModels
             
         }
 
+        //  Création d'un ObservableCollection<Pokemon> PokeDeck
         public ObservableCollection<Pokemon> PokeDeck
         {
             get { return GetValue<ObservableCollection<Pokemon>>(); }
             set { SetValue(value); }
         }
 
+        // Méthode qui permet d'ajouter un pokémon dans la liste PokeDeck
         public void PokeListPokeDeck(List<Pokemon> listPokemons)
         {
             PokeDeck.Clear();
@@ -53,6 +62,7 @@ namespace PokeApp.ViewModels
 
         }
 
+        // Méthode asynchrone qui permet de récuperer et d'ajouter les 50 premiers pokémons dans PokemonsList et MyList
         public async void InitList()
         {
             List<Pokemon> listPokemons = await App.PokeRepository.GetPokemonsAsync();

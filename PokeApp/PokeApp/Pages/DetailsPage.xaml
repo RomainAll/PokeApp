@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     x:Class="PokeApp.DetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -7,7 +6,8 @@
     <ScrollView>
         <StackLayout>
             <Frame>
-                <Image HeightRequest="100" Source="PokeInfo.jpg" />
+                <Image HeightRequest="100" 
+                       Source="PokeInfo.jpg" />
             </Frame>
             <Frame
                 Margin="10"
@@ -69,7 +69,8 @@
                                 HorizontalOptions="Center"
                                 Orientation="Horizontal"
                                 Spacing="30">
-                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="Center" 
+                                             Orientation="Horizontal">
                                     <Label
                                         FontAttributes="Bold"
                                         FontSize="20"
@@ -84,7 +85,8 @@
                                         Text="m"
                                         VerticalOptions="Center" />
                                 </StackLayout>
-                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="Center" 
+                                             Orientation="Horizontal">
                                     <Label
                                         FontAttributes="Bold"
                                         FontSize="20"
@@ -119,8 +121,10 @@
                                 HorizontalTextAlignment="Center"
                                 Text="Stats :" />
                             <StackLayout>
-                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                                    <Label FontSize="17" Text=" 💚 Hp =" />
+                                <StackLayout HorizontalOptions="Center" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text=" 💚 Hp =" />
                                     <Label
                                         x:Name="LabelHp"
                                         FontSize="17"
@@ -138,8 +142,10 @@
                             </StackLayout>
 
                             <StackLayout>
-                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                                    <Label FontSize="17" Text="⚔️ Attaque =" />
+                                <StackLayout HorizontalOptions="Center" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text="⚔️ Attaque =" />
                                     <Label
                                         x:Name="LabelAttaque"
                                         FontSize="17"
@@ -157,8 +163,10 @@
                             </StackLayout>
 
                             <StackLayout>
-                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                                    <Label FontSize="17" Text="🔰 Défence =" />
+                                <StackLayout HorizontalOptions="CenterAndExpand" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text="🔰 Défence =" />
                                     <Label
                                         x:Name="LabelDefence"
                                         FontSize="17"
@@ -176,8 +184,10 @@
                             </StackLayout>
 
                             <StackLayout>
-                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                                    <Label FontSize="17" Text="🧨💥 Attaque Spéciale =" />
+                                <StackLayout HorizontalOptions="CenterAndExpand" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text="🧨💥 Attaque Spéciale =" />
                                     <Label
                                         x:Name="LabelAttaqueSpe"
                                         FontSize="17"
@@ -195,8 +205,10 @@
                             </StackLayout>
 
                             <StackLayout>
-                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                                    <Label FontSize="17" Text=" 🛡 🗡 Défence Spéciale =" />
+                                <StackLayout HorizontalOptions="CenterAndExpand" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text=" 🛡 🗡 Défence Spéciale =" />
                                     <Label
                                         x:Name="LabelDefenceSpe"
                                         FontSize="17"
@@ -214,8 +226,10 @@
                             </StackLayout>
 
                             <StackLayout>
-                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                                    <Label FontSize="17" Text="🌪 Vitesse =" />
+                                <StackLayout HorizontalOptions="CenterAndExpand" 
+                                             Orientation="Horizontal">
+                                    <Label FontSize="17" 
+                                           Text="🌪 Vitesse =" />
                                     <Label
                                         x:Name="LabelVitesse"
                                         FontSize="17"
@@ -245,7 +259,8 @@
                                     WidthRequest="200" />
                             </StackLayout>
 
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <StackLayout Orientation="Horizontal" 
+                                         HorizontalOptions="Center">
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="20"
@@ -253,10 +268,9 @@
                                     VerticalOptions="Center"
                                     Text="Ajout au PokeDeck :" />
 
-                                <Switch Toggled="OnToggled" VerticalOptions="Center" />
+                                <Switch Toggled="OnToggled" 
+                                        VerticalOptions="Center" />
                             </StackLayout>
-                           
-
                             <Button
                                 BackgroundColor="{Binding TypeColor1}"
                                 Clicked="goBack"

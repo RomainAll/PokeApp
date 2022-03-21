@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     x:Class="PokeApp.ListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <StackLayout>
         <Frame>
-            <Image HeightRequest="100" Source="PokeDex.jpg" />
+            <Image HeightRequest="100" 
+                   Source="PokeDex.jpg" />
         </Frame>
         <SearchBar TextChanged="SearchBarPoke"
                    CancelButtonColor="Orange"
@@ -35,7 +35,8 @@
                             BorderColor="Black"
                             CornerRadius="20">
                             <StackLayout Orientation="Horizontal">
-                                <StackLayout Spacing="10" VerticalOptions="Center">
+                                <StackLayout Spacing="10" 
+                                             VerticalOptions="Center">
                                     <StackLayout Orientation="Horizontal">
                                         <Label
                                             FontAttributes="Bold"
@@ -46,7 +47,8 @@
                                             FontSize="20"
                                             Text="{Binding Number, StringFormat='#{0}'}" />
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout Orientation="Horizontal" 
+                                                 Spacing="10">
                                         <Frame
                                             Padding="10,5,10,5"
                                             BackgroundColor="{Binding TypeColor1}"

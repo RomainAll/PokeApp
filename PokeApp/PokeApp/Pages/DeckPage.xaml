@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <StackLayout>
         <Frame>
-            <Image HeightRequest="100" Source="PokeDeck.jpg" />
+            <Image HeightRequest="100"
+                   Source="PokeDeck.jpg" />
         </Frame>
         <CollectionView
             x:Name="pokemonsList"
@@ -43,8 +44,10 @@
                                         Source="{Binding Url}"
                                         WidthRequest="50" />
                                 </Frame>
-                                <StackLayout Spacing="10" VerticalOptions="Center">
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center"    >
+                                <StackLayout Spacing="10" 
+                                             VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" 
+                                                 HorizontalOptions="Center"    >
                                         <Label
                                             FontAttributes="Bold"
                                             FontSize="15"
@@ -54,7 +57,8 @@
                                             FontSize="15"
                                             Text="{Binding Number, StringFormat='#{0}'}" />
                                     </StackLayout>
-                                    <StackLayout Spacing="5" HorizontalOptions="Center">
+                                    <StackLayout Spacing="5" 
+                                                 HorizontalOptions="Center">
                                         <Frame
                                             Padding="10,5,10,5"
                                             BackgroundColor="{Binding TypeColor1}"

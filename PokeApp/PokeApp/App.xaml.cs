@@ -1,20 +1,22 @@
 ﻿using PokeApp.Repositories;
-using System;
 using System.IO;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PokeApp
 {
     public partial class App : Application
     {
+        // Déclaration de deux variable de type string permetant d'accéder au chemin de la base de donnée
         private string dbPath = Path.Combine(FileSystem.AppDataDirectory, "database.db3");
         private string dbPathPokeDeck = Path.Combine(FileSystem.AppDataDirectory, "database.db1");
 
+        // Déclatartion  static de PokeRepository et de PokeDeckRepository
         public static PokeRepository PokeRepository { get; private set; }
         public static PokeDeckRepository PokeDeckRepository { get; private set; }
 
+
+        // Constructeur de APP
         public App()
         {
             InitializeComponent();

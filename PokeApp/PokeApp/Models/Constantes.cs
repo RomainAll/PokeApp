@@ -6,6 +6,7 @@ namespace PokeApp.Models
 {
     internal class Constantes
     {
+        //Ici, nous avons choisi de créer un dictionnaire afin d'attribuer aux différents types une couleur et son nom en français.
         public static readonly Dictionary<string,(string,string)> ColorDictionary = new Dictionary<string,(string, string)>
         {
             {"rock", ("🏔 Roche", "#B6A136") },
