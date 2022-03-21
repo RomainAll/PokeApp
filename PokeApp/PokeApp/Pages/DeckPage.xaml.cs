@@ -16,9 +16,6 @@ namespace PokeApp
             BindingContext = ListViewModel.Instance;
         }
 
-        // Permet de retourner la liste ??
-        //public static object Instance { get; internal set; }
-
         // Déclaration d'une méthode asynchrone qui vérifie que si le pokémon est sélectionné, il nous revoit sa page de détail 
         async void Selection(Object sender, SelectionChangedEventArgs eventArgs)
         {

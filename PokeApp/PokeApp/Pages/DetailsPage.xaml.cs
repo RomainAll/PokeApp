@@ -25,7 +25,7 @@ namespace PokeApp
         }
 
         // Méthode asynchrone sur le Switch qui vérifie que si le booléen isOnPokeDeck est égale à faux, on l'initialise à vrai et 
-        // on ajoute le pokémon dans la liste des favoris dans la page DeckPage et on "Clear" la liste de la page ListPage
+        // on ajoute le pokémon dans la liste des favoris dans la page DeckPage et on actualise la liste de la page ListPage
         public async void OnToggled(object sender, ToggledEventArgs e)
         {
             if (poke.isOnPokeDeck == false)
