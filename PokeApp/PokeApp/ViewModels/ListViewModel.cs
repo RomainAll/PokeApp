@@ -62,12 +62,13 @@ namespace PokeApp.ViewModels
 
         }
 
-        // Méthode asynchrone qui permet de récuperer et d'ajouter les 50 premiers pokémons dans PokemonsList et MyList
+        // Méthode asynchrone qui permet de récuperer les pokemons dans la base de donnée ou d'ajouter les 50 premiers pokémons de l'api puis des les ajouter dans PokemonsList et MyList
         public async void InitList()
         {
             List<Pokemon> listPokemons = await App.PokeRepository.GetPokemonsAsync();
             List<Pokemon> pokeDeckDB = await App.PokeDeckRepository.GetPokemonsAsync();
             PokeApiClient pokeApiClient = new PokeApiClient();
+            // Ajout pour la base de donnée de la liste
             if (listPokemons.Count != 0)
             {
                 foreach (Pokemon pokemon in listPokemons)
@@ -76,6 +77,7 @@ namespace PokeApp.ViewModels
                     PokemonsList.Add(pokemon);
                 }
             }
+            //2e Base de donnée pour le PokeDeck (on a pas reussi a faire avec une seule base de données, ce qui provoquent certains bugs non present avant l'ajout du bonus)
             if (pokeDeckDB.Count != 0)
             {
                 foreach (Pokemon pokemon in pokeDeckDB)
@@ -83,6 +85,7 @@ namespace PokeApp.ViewModels
                     if (pokemon.isOnPokeDeck == true) { PokeDeck.Add(pokemon); }
                 }
             }
+            // Ajout des pokemons de l'API
             else
             {
                 for (int i = 1; i <= 50; i++)

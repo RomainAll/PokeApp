@@ -44,9 +44,11 @@ namespace PokeApp
 
                 List<Pokemon> pokemons_bdList = await App.PokeRepository.GetPokemonsAsync();
                 ListViewModel.Instance.MyList.Clear();
+                ListViewModel.Instance.PokemonsList.Clear();
                 foreach (var pokemoni in pokemons_bdList)
                 {
                     ListViewModel.Instance.MyList.Add(pokemoni);
+                    ListViewModel.Instance.PokemonsList.Add(pokemoni);
                 }
             }
         }
